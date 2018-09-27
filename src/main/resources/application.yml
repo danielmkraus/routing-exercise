@@ -1,0 +1,10 @@
+spring:
+  data:
+    neo4j:
+      username: user
+      password: user
+      auto-index: update
+  jackson:
+    default-property-inclusion: non_null
+
+delivery.import.data.csv: true

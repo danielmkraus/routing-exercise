@@ -1,0 +1,6 @@
+spring:
+  data:
+    neo4j:
+      auto-index: update
+  jackson:
+    default-property-inclusion: non_null
