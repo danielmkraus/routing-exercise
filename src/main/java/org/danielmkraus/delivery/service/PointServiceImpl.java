@@ -57,13 +57,7 @@ public class PointServiceImpl implements PointService {
 	}
 
 	public Point save(Point point) {
-		checkName(point);
 		return pointRepository.save(point,0);
-	}
-
-	private void checkName(Point point) {
-		
-		pointRepository.findByName(point.getName());
 	}
 	
 	private PointBuilder createBuilderFromData(PointData pointData) {
