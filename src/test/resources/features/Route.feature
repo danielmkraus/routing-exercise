@@ -105,6 +105,8 @@ Feature:
 		And the cheapest path when time cost is 10 from A to D has time 3 and cost 33 with this path:
 			| name |
 			| A    |
+			| B    | 
+			| C    |
 			| D    |
 		
 		

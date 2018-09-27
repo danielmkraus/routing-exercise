@@ -65,8 +65,10 @@ public class RouteSteps extends SpringIntegrationTest {
 		assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.OK);
 
 		Path path = response.getBody();
+		assertThat(path.getTotalCost()).isEqualByComparingTo(cost);
+		assertThat(path.getTotalTime()).isEqualByComparingTo(time);
 		assertThat(path.getNodes()).extracting(Point::getName)
-				.containsAll(nodes.stream().map(Point::getName).collect(Collectors.toList()));
+		.containsExactlyElementsOf(nodes.stream().map(Point::getName).collect(Collectors.toList()));
 	}
 
 	@Then("^the fastest path from (\\w+) to (\\w+) has time (\\d+) and cost (\\d+) with this path:$")
@@ -81,8 +83,10 @@ public class RouteSteps extends SpringIntegrationTest {
 		assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.OK);
 
 		Path path = response.getBody();
+		assertThat(path.getTotalCost()).isEqualByComparingTo(cost);
+		assertThat(path.getTotalTime()).isEqualByComparingTo(time);
 		assertThat(path.getNodes()).extracting(Point::getName)
-				.containsAll(nodes.stream().map(Point::getName).collect(Collectors.toList()));
+		.containsExactlyElementsOf(nodes.stream().map(Point::getName).collect(Collectors.toList()));
 	}
 
 	@Then("^the cheapest path when time cost is (\\d+) from (\\w+) to (\\w+) has time (\\d+) and cost (\\d+) with this path:$")
@@ -95,9 +99,12 @@ public class RouteSteps extends SpringIntegrationTest {
 		assertThat(response).isNotNull();
 		assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.OK);
 
+		
 		Path path = response.getBody();
+		assertThat(path.getTotalCost()).isEqualByComparingTo(cost);
+		assertThat(path.getTotalTime()).isEqualByComparingTo(time);
 		assertThat(path.getNodes()).extracting(Point::getName)
-				.containsAll(nodes.stream().map(Point::getName).collect(Collectors.toList()));
+				.containsExactlyElementsOf(nodes.stream().map(Point::getName).collect(Collectors.toList()));
 	}
 
 	@When("^register a route without time$")

@@ -1,5 +1,7 @@
 # Routing exercise
 
+[ ![Codeship Status for danielmkraus/routing-exercise](https://app.codeship.com/projects/7f162ba0-a340-0136-d1b5-66bb310eeefb/status?branch=master)](https://app.codeship.com/projects/307338) 
+
 ## Indroduction
 
 This is a sample microservice to:
